@@ -1,0 +1,23 @@
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+#  Service script to run aquarium lights
+#  FAD-DIYIT
+#  10/21/2018
+
+
+[Unit]
+Description=Issue IR commands to Current Satellite LED Plus
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python -u /home/pi/LightCycle.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
